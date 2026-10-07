@@ -4,10 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 17.0+e\n"
+"Project-Id-Version: Odoo Server 20.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-07 08:36+0000\n"
-"PO-Revision-Date: 2026-10-07 08:36+0000\n"
+"POT-Creation-Date: 2026-10-07 08:43+0000\n"
+"PO-Revision-Date: 2026-10-07 08:43+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: pl\n"
@@ -17,9 +17,52 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #. module: hfb_app_cost_from_purchase
+#: model:ir.module.module,description:base.module_hfb_app_cost_from_purchase
+msgid ""
+"\n"
+"Product Cost from Purchase Orders\n"
+"=================================\n"
+"\n"
+"Margins on quotations, sales orders and reports are computed from the product\n"
+"Cost field. When nobody updates it, the margins are fiction.\n"
+"\n"
+"With this app, every confirmed purchase order writes the purchase price into\n"
+"the Cost of its products (products using the Standard Price costing method):\n"
+"\n"
+"* the price is net of discounts and taxes,\n"
+"* converted to the product unit of measure and to the company currency,\n"
+"* several lines of the same product are averaged by quantity,\n"
+"* the product keeps the last order, date and original price,\n"
+"* the change is logged in the product chatter.\n"
+"\n"
+"Products costed with FIFO or Average Cost are skipped - Odoo already updates\n"
+"their cost on receipt. The feature can be switched off per company in the\n"
+"Purchase settings.\n"
+msgstr ""
+"\n"
+"Koszt produktu z zamówień zakupu\n"
+"================================\n"
+"\n"
+"Marże na ofertach, zamówieniach sprzedaży i w raportach są liczone z pola Koszt\n"
+"produktu. Jeśli nikt go nie aktualizuje, marże są fikcją.\n"
+"\n"
+"Z tą aplikacją każde potwierdzone zamówienie zakupu wpisuje cenę zakupu do\n"
+"Kosztu produktów (produkty wyceniane ceną standardową):\n"
+"\n"
+"* cena po rabatach, bez podatków,\n"
+"* przeliczona na jednostkę miary produktu i walutę firmy,\n"
+"* kilka linii tego samego produktu jest uśredniane według ilości,\n"
+"* produkt pamięta ostatnie zamówienie, datę i pierwotną cenę,\n"
+"* zmiana jest zapisywana w historii (chatterze) produktu.\n"
+"\n"
+"Produkty wyceniane metodą FIFO lub średniej ważonej są pomijane - Odoo samo\n"
+"aktualizuje ich koszt przy przyjęciu. Funkcję można wyłączyć dla każdej firmy\n"
+"w ustawieniach Zakupów.\n"
+
+#. module: hfb_app_cost_from_purchase
 #: model:ir.model,name:hfb_app_cost_from_purchase.model_res_company
-msgid "Companies"
-msgstr "Firmy"
+msgid "Company"
+msgstr "Firma"
 
 #. module: hfb_app_cost_from_purchase
 #: model:ir.model,name:hfb_app_cost_from_purchase.model_res_config_settings
@@ -34,6 +77,15 @@ msgid ""
 msgstr ""
 "Potwierdzenie zamówienia zakupu ustawia koszt produktu na zapłaconą cenę "
 "(produkty wyceniane ceną standardową)"
+
+#. module: hfb_app_cost_from_purchase
+#: model:ir.module.module,summary:base.module_hfb_app_cost_from_purchase
+msgid ""
+"Confirming a purchase order updates the product cost with the price you "
+"actually paid"
+msgstr ""
+"Potwierdzenie zamówienia zakupu aktualizuje koszt produktu o faktycznie "
+"zapłaconą cenę"
 
 #. module: hfb_app_cost_from_purchase
 #: model:ir.model.fields,field_description:hfb_app_cost_from_purchase.field_product_product__po_cost_order_id
@@ -55,10 +107,27 @@ msgstr "Koszt z zamówień zakupu"
 #. module: hfb_app_cost_from_purchase
 #. odoo-python
 #: code:addons/hfb_app_cost_from_purchase/models/purchase_order.py:0
-#, python-format
 msgid "Cost updated from %(old)s to %(new)s by purchase order %(order)s."
 msgstr ""
 "Koszt zmieniony z %(old)s na %(new)s przez zamówienie zakupu %(order)s."
+
+#. module: hfb_app_cost_from_purchase
+#: model:ir.model.fields,field_description:hfb_app_cost_from_purchase.field_product_product__display_name
+#: model:ir.model.fields,field_description:hfb_app_cost_from_purchase.field_product_template__display_name
+#: model:ir.model.fields,field_description:hfb_app_cost_from_purchase.field_purchase_order__display_name
+#: model:ir.model.fields,field_description:hfb_app_cost_from_purchase.field_res_company__display_name
+#: model:ir.model.fields,field_description:hfb_app_cost_from_purchase.field_res_config_settings__display_name
+msgid "Display Name"
+msgstr "Nazwa wyświetlana"
+
+#. module: hfb_app_cost_from_purchase
+#: model:ir.model.fields,field_description:hfb_app_cost_from_purchase.field_product_product__id
+#: model:ir.model.fields,field_description:hfb_app_cost_from_purchase.field_product_template__id
+#: model:ir.model.fields,field_description:hfb_app_cost_from_purchase.field_purchase_order__id
+#: model:ir.model.fields,field_description:hfb_app_cost_from_purchase.field_res_company__id
+#: model:ir.model.fields,field_description:hfb_app_cost_from_purchase.field_res_config_settings__id
+msgid "ID"
+msgstr "ID"
 
 #. module: hfb_app_cost_from_purchase
 #: model:ir.model.fields,help:hfb_app_cost_from_purchase.field_product_product__po_cost_order_id
@@ -83,6 +152,11 @@ msgstr "Cena z zamówienia"
 #: model:ir.model,name:hfb_app_cost_from_purchase.model_product_template
 msgid "Product"
 msgstr "Produkt"
+
+#. module: hfb_app_cost_from_purchase
+#: model:ir.module.module,shortdesc:base.module_hfb_app_cost_from_purchase
+msgid "Product Cost from Purchase Orders"
+msgstr "Koszt produktu z zamówień zakupu"
 
 #. module: hfb_app_cost_from_purchase
 #: model:ir.model,name:hfb_app_cost_from_purchase.model_product_product
