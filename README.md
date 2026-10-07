@@ -33,4 +33,4 @@ Confirming a purchase order writes the price paid into the Cost of its products 
 
 ## Status
 
-Odoo 19 build. Missing before publication: icon, banner, tests on 18/19/20.
+Odoo 20 build. Missing before publication: icon, banner, tests on 18/19/20.
