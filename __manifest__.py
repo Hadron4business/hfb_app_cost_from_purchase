@@ -40,7 +40,7 @@ Products costed with FIFO or Average Cost are skipped - Odoo already updates
 their cost on receipt. The feature can be switched off per company in the
 Purchase settings.
 """,
-    'version': "17.0.1.0.0",
+    'version': "18.0.1.0.0",
     'author': "Hadron for Business sp. z o.o.",
     'website': "http://hadronforbusiness.com",
     'license': "OPL-1",
