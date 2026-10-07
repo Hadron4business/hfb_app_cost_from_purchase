@@ -33,4 +33,4 @@ Confirming a purchase order writes the price paid into the Cost of its products 
 
 ## Status
 
-Odoo 17 build. Tested on the Odoo.sh test instances (automated RPC tests and manual tests, 2026-10-07). Missing before publication: icon, banner.
+Odoo 17 build. Tested on the Odoo.sh test instances (automated RPC tests and manual tests, 2026-10-07). Icon and banner included - ready for publication.
