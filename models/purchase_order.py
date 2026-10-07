@@ -62,12 +62,12 @@ class PurchaseOrder(models.Model):
             for line in order.order_line:
                 product = line.product_id
                 if line.display_type or not product or float_is_zero(
-                        line.product_qty, precision_rounding=line.product_uom_id.rounding):
+                        line.product_qty, precision_rounding=line.uom_id.rounding):
                     continue
                 product = product.with_company(company)
                 if not order._cost_is_updatable(product):
                     continue
-                qty = line.product_uom_id._compute_quantity(line.product_qty, product.uom_id)
+                qty = line.uom_id._compute_quantity(line.product_qty, product.uom_id)
                 if float_is_zero(qty, precision_rounding=product.uom_id.rounding):
                     continue
                 subtotal = line.price_subtotal
