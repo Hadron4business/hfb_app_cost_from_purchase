@@ -13,7 +13,7 @@ Confirming a purchase order writes the price paid into the Cost of its products 
 
 ## How to use it
 
-1. Install the app. The option Update Product Cost from Purchase Orders in Purchase &gt; Configuration &gt; Settings is on by default.
+1. Install the app. The option Update Product Cost from Purchase Orders in Purchase > Configuration > Settings is on by default.
 2. Make sure your products use the Standard Price costing method (product category, Inventory Valuation section - visible with the Inventory app).
 3. Confirm a purchase order. The Cost of its products is updated.
 4. Open a product: the Purchase tab shows the order that set the cost, the date and the price paid; the chatter keeps the history.
