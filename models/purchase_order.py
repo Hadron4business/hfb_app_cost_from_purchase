@@ -16,7 +16,7 @@
 # all copies or substantial portions of the Software.
 #
 #################################################################################
-"""	@version	20.0.1.0.0
+"""	@version	20.0.1.0.1
 	@owner  Hadron for Business
 	@author Hadron for Business sp. z o.o.
 	@date   2026.10.07
@@ -61,14 +61,13 @@ class PurchaseOrder(models.Model):
             totals = defaultdict(lambda: [0.0, 0.0, 0.0])  # cost in company currency, qty, price
             for line in order.order_line:
                 product = line.product_id
-                if line.display_type or not product or float_is_zero(
-                        line.product_qty, precision_rounding=line.uom_id.rounding):
+                if line.display_type or not product or line.uom_id.is_zero(line.product_qty):
                     continue
                 product = product.with_company(company)
                 if not order._cost_is_updatable(product):
                     continue
                 qty = line.uom_id._compute_quantity(line.product_qty, product.uom_id)
-                if float_is_zero(qty, precision_rounding=product.uom_id.rounding):
+                if product.uom_id.is_zero(qty):
                     continue
                 subtotal = line.price_subtotal
                 if float_is_zero(subtotal, precision_rounding=order.currency_id.rounding):
