@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="res_config_settings_view_form_po_cost" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.po.cost</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="purchase.res_config_settings_view_form_purchase"/>
+        <field name="arch" type="xml">
+            <xpath expr="//block[@name='purchase_setting_container']" position="inside">
+                <setting id="po_update_product_cost" company_dependent="1"
+                         help="Confirming a purchase order sets the product cost to the price paid (products costed at Standard Price)">
+                    <field name="po_update_product_cost"/>
+                </setting>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
